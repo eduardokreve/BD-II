@@ -9,12 +9,20 @@ def criaTable(tab):
 
 def main():
 
-    comand = input("Comando SQL: ")
+    while(1): 
+        comand = input("Comando SQL: ")
 
-    if(comand.find("create") != -1): #se for igual a -1 não foi achado
-        criaTable(comand)
-    else:
-        print("erro")
+        #verifica os comandos SQL digitados corretamente 
+        if(comand.find("create") != -1 and comand.find("table") != -1): 
+            criaTable(comand)
+
+        elif(comand.find("insert") != -1 and comand.find("into") != -1):
+            
+        
+        else:
+            print("Comando incorreto")
+            break
+
 
 
 if __name__ == "__main__":
