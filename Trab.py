@@ -25,11 +25,9 @@ def createTable(tab):
     fileFunction.createBin(nameTable)
 
 
-
-
     
 #função que insere valores na tabela
-def inseTable(valor):
+def insertTable(valor):
     print("funcao que insere os valores")
 
 
@@ -51,11 +49,12 @@ def main():
         elif(comand.find("insert ") != -1 and comand.find("into ") != -1 and
              comand.find("(") != -1 and comand.find(")") != -1):
             
-            inseTable(comand)
+            insertTable(comand)
 
         else:
             print("Comando incorreto")
             break
+            
 
 if __name__ == "__main__":
     main()
