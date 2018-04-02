@@ -7,13 +7,12 @@ def criaTable(tab):
     del table[0:2]#exclui create e table da lista
 
     nameTable = table[0:1]#pega o nome da tabela
-
+    
     #faz a limpeza do comando ficando somente o atributo e tipo
-    del table[0:1]
-    del table[0:1]
+    del table[0:2]
     del table[len(table) -1 : len(table)] 
     
-    while(1): #tira todas s ','
+    while(1): #tira todas as ','
         try:
             del table[table.index(',')]
         except ValueError:
@@ -36,12 +35,12 @@ def main():
         
         #verifica os comandos SQL digitados corretamente 
         if(comand.find("create ") != -1 and comand.find("table ") != -1 and 
-            comand.find("(") != -1 and comand.find(")")): 
+            comand.find("(") != -1 and comand.find(")") != -1): 
             
             criaTable(comand)
 
         elif(comand.find("insert ") != -1 and comand.find("into ") != -1 and
-             comand.find("(") != -1 and comand.find(")")):
+             comand.find("(") != -1 and comand.find(")") != -1):
             
             inseTable(comand)
 
