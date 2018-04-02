@@ -1,6 +1,5 @@
 # coding=utf-8
 import string
-import re
 
 #função que cria a tabela 
 def criaTable(tab):  
@@ -36,10 +35,14 @@ def main():
         comand = input("Comando SQL:")#a entrada é str
         
         #verifica os comandos SQL digitados corretamente 
-        if(comand.find("create ") != -1 and comand.find("table ") != -1): 
+        if(comand.find("create ") != -1 and comand.find("table ") != -1 and 
+            comand.find("(") != -1 and comand.find(")")): 
+            
             criaTable(comand)
 
-        elif(comand.find("insert") != -1 and comand.find("into") != -1):
+        elif(comand.find("insert ") != -1 and comand.find("into ") != -1 and
+             comand.find("(") != -1 and comand.find(")")):
+            
             inseTable(comand)
 
         else:
