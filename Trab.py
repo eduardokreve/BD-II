@@ -1,8 +1,10 @@
 # coding=utf-8
 import string
+import os
+import fileFunction
 
 #função que cria a tabela 
-def criaTable(tab):  
+def createTable(tab):  
     table = list(map(str, tab.split()))#converte o argumento para uma lista
     del table[0:2]#exclui create e table da lista
 
@@ -17,8 +19,14 @@ def criaTable(tab):
             del table[table.index(',')]
         except ValueError:
             break
-   
-    print(table)
+
+    #A manipulação dos arquivos é feita no fileFunction.py
+    fileFunction.createFolder() 
+    fileFunction.createBin(nameTable)
+
+
+
+
     
 #função que insere valores na tabela
 def inseTable(valor):
@@ -32,13 +40,14 @@ def main():
     while(1): 
         
         comand = input("Comando SQL:")#a entrada é str
+        os.system('cls' if os.name == 'nt' else 'clear')#limpar a tela
         
         #verifica os comandos SQL digitados corretamente 
         if(comand.find("create ") != -1 and comand.find("table ") != -1 and 
             comand.find("(") != -1 and comand.find(")") != -1): 
             
-            criaTable(comand)
-
+            createTable(comand)
+            
         elif(comand.find("insert ") != -1 and comand.find("into ") != -1 and
              comand.find("(") != -1 and comand.find(")") != -1):
             
